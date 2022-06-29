@@ -1,11 +1,11 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 autoload -Uz compinit
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
+if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24)" ]]; then
+	compinit
 else
-	compinit -C;
-fi;
+	compinit -C
+fi
 
 #dracula theme for zsh-syntax-highlighting
 source ~/.oh-my-zsh/custom/dracula-zsh-syntax-highlighting/init.sh
@@ -24,7 +24,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
 #alias
+
 #pnpm
 alias pi="pnpm install"
 alias pa="pnpm add"
@@ -87,10 +89,9 @@ function build() {
 # eval "$(starship init zsh)"
 _evalcache starship init zsh
 
-
 # fnm
 export PATH=/home/izcream/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env)"
 
 # pnpm
 export PNPM_HOME="/home/izcream/.local/share/pnpm"
