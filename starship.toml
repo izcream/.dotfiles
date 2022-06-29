@@ -1,0 +1,65 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+scan_timeout = 100
+command_timeout = 3000
+
+[container]
+symbol = "\uf308 "
+
+[character]
+success_symbol = "[🍦 ➜](green)"
+error_symbol = "[🦄 ➜](red)"
+vicmd_symbol = "[🚀 ➜](blue)"
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[package]
+disabled = true
+
+[nodejs]
+style ="green"
+symbol = "\ue718"
+format = '\[[$symbol($version)]($style)\]'
+
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+symbol = "🌱"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+tag_disabled = false
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+conflicted = "🚩"
+ahead = "🚀"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑️"
+
+[docker_context]
+format = '\[[$symbol$context]($style)\]'
+symbol = "\uf308 "
+
+[golang]
+format = '\[[$symbol($version)]($style)\]'
+symbol = "\ufcd1 "
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[nix_shell]
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[php]
+format = '\[[$symbol($version)]($style)\]'
+[username]
+format = '\[[$user]($style)\]'
