@@ -1,5 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+#folder for dotfile
+DOTFILE_FOLDER="$HOME/.dotfiles"
+
 autoload -Uz compinit
 if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24)" ]]; then
 	compinit
@@ -18,9 +21,9 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	last-working-dir
-	zsh-z
 	you-should-use
 	evalcache
+	command-not-found
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -44,23 +47,35 @@ alias dc="docker compose"
 #general
 alias wwa="cd ~/projects/wewillapp"
 alias gta="cd ~/future-rp"
-# alias h="cd ~"
 alias c="code"
-alias cpt="cp ~/.prettierrc . && echo .prettierrc created 🚀"
 alias dex="docker exec -it $1"
 alias rz="source ~/.zshrc"
 alias devc="devcontainer"
 alias clr="clear"
 alias sls="jq .scripts package.json"
+#plugins
 alias cat="bat"
-alias ls="logo-ls"
+alias ls="lsd"
 
+#go to home
 function h() {
 	cd ~/$1
 }
 
+#create directory and cd to it
 function dir() {
 	mkdir $1 && cd $1
+}
+
+#create file and open with vscode
+function touchh() {
+	touch $1 && code $1
+}
+
+#create .prettierrc file as current path
+function cpt() {
+	cp $DOTFILE_FOLDER/.prettierrc $(pwd)/.prettierrc
+	echo .prettierrc created 🚀
 }
 
 #run dev command by current node package manager tool
@@ -72,7 +87,6 @@ function dev() {
 	else
 		npm run dev
 	fi
-	echo -f $(pwd)"/pnpm-lock.yaml"
 }
 
 #run build command by current node package manager tool
@@ -84,7 +98,6 @@ function build() {
 	else
 		npm run build
 	fi
-	echo -f $(pwd)"/pnpm-lock.yaml"
 }
 # eval "$(starship init zsh)"
 _evalcache starship init zsh
@@ -104,4 +117,7 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
 #bat theme
 export BAT_THEME=dracula
-source /home/izcream/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
+
+#zoxide
+eval "$(zoxide init zsh)"
