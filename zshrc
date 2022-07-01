@@ -1,5 +1,4 @@
 export ZSH="$HOME/.oh-my-zsh"
-
 #folder for dotfile
 DOTFILE_FOLDER="$HOME/.dotfiles"
 
@@ -10,24 +9,19 @@ else
 	compinit -C
 fi
 
-#dracula theme for zsh-syntax-highlighting
-source ~/.oh-my-zsh/custom/dracula-zsh-syntax-highlighting/init.sh
+source $ZSH/custom/dracula-zsh-syntax-highlighting/init.sh
 
 ZSH_THEME="dracula"
 plugins=(
 	git
 	docker-compose
-	aliases
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	last-working-dir
 	you-should-use
 	evalcache
-	command-not-found
 )
-
 source $ZSH/oh-my-zsh.sh
-
 #alias
 
 #pnpm
@@ -53,6 +47,9 @@ alias rz="source ~/.zshrc"
 alias devc="devcontainer"
 alias clr="clear"
 alias sls="jq .scripts package.json"
+alias exp="explorer.exe"
+alias colors="$DOTFILE_FOLDER/scripts/colors.sh"
+alias neofetch="macchina"
 #plugins
 alias cat="bat"
 alias ls="lsd"
@@ -99,12 +96,14 @@ function build() {
 		npm run build
 	fi
 }
-# eval "$(starship init zsh)"
-_evalcache starship init zsh
 
+#starship
+_evalcache starship init zsh
 # fnm
 export PATH=/home/izcream/.fnm:$PATH
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd)"
+#zoxide
+_evalcache zoxide init zsh
 
 # pnpm
 export PNPM_HOME="/home/izcream/.local/share/pnpm"
@@ -113,11 +112,8 @@ export PATH="$PNPM_HOME:$PATH"
 
 #golang
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
 #.local/bin
 export PATH=$PATH:$HOME/.local/bin
 #bat theme
 export BAT_THEME=dracula
-source $HOME/.config/broot/launcher/bash/br
-
-#zoxide
-eval "$(zoxide init zsh)"

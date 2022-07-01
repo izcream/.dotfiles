@@ -4,15 +4,25 @@ add_newline = true
 scan_timeout = 100
 command_timeout = 1000
 
+format = """
+$directory$all
+$character
+"""
+
+right_format="$cmd_duration $time"
+
+[time]
+disabled = false
 
 [cmd_duration]
-min_time = 100
+min_time = 0
 format = '\[⏱️[$duration]($style)\]'
+style = "238"
 
 [character]
-success_symbol = "[🍦\uf432](010)"
-error_symbol = "[👻\uf432](009)"
-vicmd_symbol = "[🚀\uf432]](006)"
+success_symbol = "[🍦\ufc32](010)"
+error_symbol = "[👻\ufc32](009)"
+vicmd_symbol = "[🚀\ufc32]](006)"
 
 [directory]
 truncation_length = 3
@@ -27,12 +37,15 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 # "Pictures" = "🖼️ "
 
 [package]
-disabled = true
+format = "[$symbol$version]($style) "
+style = "fg:008"
+disabled = false
+symbol = "📦"
 
 [nodejs]
 style ="green"
 symbol = "\ue718"
-format = '\[[$symbol ($version)]($style)\]'
+format = "via [$symbol($version)]($style)"
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
@@ -40,22 +53,11 @@ symbol = "🌱"
 
 [git_commit]
 commit_hash_length = 6
-tag_symbol = "🔖 "
+only_detached = true
+tag_symbol = "🔖"
 tag_disabled = false
+format = "[\\($hash$tag\\)]($style)"
+style = "fg:240"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
-
-[docker_context]
-format = '\[[$symbol$context]($style)\]'
-symbol = "\uf308 "
-
-[golang]
-format = '\[[$symbol($version)]($style)\]'
-symbol = "\ufcd1 "
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
-[php]
-format = '\[[$symbol($version)]($style)\]'
