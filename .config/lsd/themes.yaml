@@ -1,0 +1,27 @@
+user: 14
+group: 7
+permission:
+  read: 4
+  write: 5
+  exec: 6
+  exec-sticky: 6
+  no-access: 9
+  octal: 6
+  acl: 8
+  context: 8
+date:
+  hour-old: 10
+  day-old: 11
+  older: 8
+size:
+  none: 8
+  small: 2
+  medium: 3
+  large: 1
+inode:
+  valid: 13
+  invalid: 245
+links:
+  valid: 6
+  invalid: 9
+tree-edge: 8

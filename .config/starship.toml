@@ -5,47 +5,46 @@ scan_timeout = 100
 command_timeout = 1000
 
 format = """
-$directory$all
-$character
-"""
+$directory[$all](008)
+$character"""
 
-right_format="$cmd_duration $time"
-
-[time]
-disabled = false
-
-[cmd_duration]
-min_time = 0
-format = '\[⏱️[$duration]($style)\]'
-style = "238"
+right_format="[$cmd_duration$time](238)"
 
 [character]
-success_symbol = "[🍦\ufc32](010)"
-error_symbol = "[👻\ufc32](009)"
-vicmd_symbol = "[🚀\ufc32]](006)"
+success_symbol = "[🍦 \ufc32](010)"
+error_symbol = "[👻 \ufc32](009)"
+vicmd_symbol = "[🚀 \ufc32]](006)"
 
 [directory]
-truncation_length = 3
+truncation_length = 2
 truncation_symbol = "…/"
-home_symbol = "🏠~"
+home_symbol = "🏠 ~"
 format = "[$path]($style)[$read_only]($read_only_style) "
+style = "014"
 
-# [directory.substitutions]
+[directory.substitutions]
 # "Documents" = "📄 "
 # "Downloads" = "📥 "
 # "Music" = "🎵 "
 # "Pictures" = "🖼️ "
 
+[time]
+disabled = false
+format ="[$time]($style)"
+time_format = "%l:%M %p"
+use_12hr = true
+style = "008"
+
+[cmd_duration]
+min_time = 0
+format = '\[⏱️[$duration]($style)\]'
+style = "008"
+
 [package]
 format = "[$symbol$version]($style) "
-style = "fg:008"
+style = "238"
 disabled = false
 symbol = "📦"
-
-[nodejs]
-style ="green"
-symbol = "\ue718"
-format = "via [$symbol($version)]($style)"
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
@@ -57,7 +56,13 @@ only_detached = true
 tag_symbol = "🔖"
 tag_disabled = false
 format = "[\\($hash$tag\\)]($style)"
-style = "fg:240"
+style = "240"
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
+
+[docker_context]
+only_with_files = false
+
+[php]
+disabled = true
