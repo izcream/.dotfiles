@@ -60,12 +60,12 @@ alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
 alias exp="explorer.exe"
 alias outdated="npx taze"
-# alias ls="colorls --sd --gs --dark"
 alias ls="lsd"
 #plugins
 alias cat="bat"
-# alias ls="colorls --gs --dark"
 alias machine="macchina"
+alias ps="procs"
+alias vi="nvim"
 
 #go to home
 function h() {
