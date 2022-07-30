@@ -1,8 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export FORGIT_LOG_GRAPH_ENABLE=false
-export BAT_THEME=dracula
-#fzf dracula color scheme
+export BAT_THEME=catppuccin
 
 autoload -Uz compinit
 if [[ -n "${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24)" ]]; then
@@ -26,10 +25,12 @@ source $ZSH/oh-my-zsh.sh
 #alias
 
 #pnpm
+alias p="pnpm"
 alias pi="pnpm install"
 alias pa="pnpm add"
 alias pad="pnpm add -D"
 alias pc="rm -rf node_modules pnpm-lock.yaml"
+alias px="pnpm dlx"
 #yarn
 alias yi="yarn install"
 alias ya="yarn add"
@@ -67,6 +68,7 @@ alias cat="bat"
 alias machine="macchina"
 alias ps="procs"
 alias vi="nvim"
+alias pm="podman"
 
 #go to home
 function h() {
@@ -115,7 +117,6 @@ function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
-
 #starship
 _evalcache starship init zsh
 # fnm
@@ -123,7 +124,7 @@ export PATH=/home/izcream/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
-_evalcache dircolors $HOME/.dircolors
+#_evalcache dircolors $HOME/.dircolors
 # pnpm
 export PNPM_HOME="/home/izcream/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -137,4 +138,11 @@ export PATH=$PATH:$HOME/.local/bin
 #fzf theme
 export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
 
+bindkey -v
 
+# bun completions
+[ -s "/home/izcream/.bun/_bun" ] && source "/home/izcream/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/home/izcream/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

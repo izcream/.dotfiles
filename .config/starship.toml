@@ -4,69 +4,69 @@ add_newline = true
 scan_timeout = 100
 command_timeout = 1000
 
-format = """
-$directory[$all](007)
-$character
-"""
+# format = """
+# $directory[$all](007)
+# $character
+# """
 
 
-right_format="[$cmd_duration$time](238)"
+# right_format="[$cmd_duration$time](238)"
 
 [character]
 success_symbol = "[🍦 \ufc32](002)"
 error_symbol = "[👻 \ufc32](001)"
-vicmd_symbol = "[🚀 \ufc32]](006)"
+vicmd_symbol = "[🚀 \ufc32](004)"
 
-[directory]
-truncation_length = 2
-truncation_symbol = "…/"
-home_symbol = "🏠 ~"
-format = "[$path]($style)[$read_only]($read_only_style) "
-style = "004"
+# [directory]
+# truncation_length = 2
+# truncation_symbol = "…/"
+# home_symbol = "🏠 ~"
+# format = "[$path]($style)[$read_only]($read_only_style) "
+# style = "004"
 
-[directory.substitutions]
-# "Documents" = "📄 "
-# "Downloads" = "📥 "
-# "Music" = "🎵 "
-# "Pictures" = "🖼️ "
+# [directory.substitutions]
+# # "Documents" = "📄 "
+# # "Downloads" = "📥 "
+# # "Music" = "🎵 "
+# # "Pictures" = "🖼️ "
 
-[time]
-disabled = false
-format ="[$time]($style)"
-time_format = "%l:%M %p"
-use_12hr = true
-style = "000"
+# [time]
+# disabled = false
+# format ="[$time]($style)"
+# time_format = "%l:%M %p"
+# use_12hr = true
+# style = "000"
 
-[cmd_duration]
-min_time = 0
-format = '\[⏱️[$duration]($style)\]'
-style = "000"
+# [cmd_duration]
+# min_time = 0
+# format = '\[⏱️[$duration]($style)\]'
+# style = "000"
 
-[package]
-format = "[$symbol$version]($style) "
-style = "000"
-disabled = false
-symbol = "📦"
+# [package]
+# format = "[$symbol$version]($style) "
+# style = "000"
+# disabled = false
+# symbol = "📦"
 
-[git_branch]
-format = '\[[$symbol$branch]($style)\]'
-symbol = "🌱"
-style = "001"
+# [git_branch]
+# format = '\[[$symbol$branch]($style)\]'
+# symbol = "🌱"
+# style = "001"
 
-[git_commit]
-commit_hash_length = 6
-only_detached = true
-tag_symbol = "🔖"
-tag_disabled = false
-format = "[\\($hash$tag\\)]($style)"
-style = "240"
+# [git_commit]
+# commit_hash_length = 6
+# only_detached = true
+# tag_symbol = "🔖"
+# tag_disabled = false
+# format = "[\\($hash$tag\\)]($style)"
+# style = "240"
 
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+# [git_status]
+# format = '([\[$all_status$ahead_behind\]]($style))'
 
-[docker_context]
-only_with_files = false
+# [docker_context]
+# only_with_files = false
 
-[php]
-disabled = true
+# [php]
+# disabled = true
 
