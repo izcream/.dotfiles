@@ -120,13 +120,13 @@ function colormap() {
 #starship
 _evalcache starship init zsh
 # fnm
-export PATH=/home/izcream/.fnm:$PATH
+export PATH=$HOME/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
 #_evalcache dircolors $HOME/.dircolors
 # pnpm
-export PNPM_HOME="/home/izcream/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -141,8 +141,11 @@ export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3
 bindkey -v
 
 # bun completions
-[ -s "/home/izcream/.bun/_bun" ] && source "/home/izcream/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Bun
-export BUN_INSTALL="/home/izcream/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/home/izcream/.bun/_bun" ] && source "/home/izcream/.bun/_bun"
