@@ -60,11 +60,10 @@ alias rz="source $HOME/.zshrc"
 alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
 alias exp="explorer.exe"
-alias outdated="npx taze"
 alias ls="exa --icons --git --group-directories-first"
 alias la="ls -la"
 #plugins
-alias cat="bat"
+alias cat="bat --paging=never --plain"
 alias machine="macchina"
 alias ps="procs"
 alias vi="nvim"
@@ -77,7 +76,7 @@ function h() {
 
 #create directory and cd to it
 function dir() {
-	mkdir $1 && cd $1
+	mkdir -p $1 && cd $1
 }
 
 #create file and open with vscode
@@ -138,8 +137,6 @@ export PATH=$PATH:$HOME/.local/bin
 #fzf theme
 export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
 
-bindkey -v
-
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
@@ -149,3 +146,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bun completions
 [ -s "/home/izcream/.bun/_bun" ] && source "/home/izcream/.bun/_bun"
+

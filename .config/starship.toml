@@ -4,14 +4,6 @@ add_newline = true
 scan_timeout = 100
 command_timeout = 1000
 
-# format = """
-# $directory[$all](008)
-# $character
-# """
-
-
-# right_format="[$cmd_duration$time](238)"
-
 [character]
 success_symbol = "[🍦 \ufc32](002)"
 error_symbol = "[👻 \ufc32](001)"
@@ -26,32 +18,12 @@ style = "004"
 
 [git_branch]
 format = "on [$symbol$branch(:$remote_branch)]($style)"
-symbol = "🌱"
+# symbol = " "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style)) '
-
-# [git_commit]
-# commit_hash_length = 6
-# only_detached = false
-# tag_symbol = "🔖"
-# tag_disabled = false
-# format = "[\\($hash$tag\\)]($style) "
-# style = "008"
 
 [package]
 format = "[$symbol$version]($style) "
 symbol = "📦 "
 style = "000"
-
-# [time]
-# disabled = false
-# format ="[$time]($style)"
-# time_format = "%l:%M %p"
-# use_12hr = true
-# style = "000"
-
-# [cmd_duration]
-# min_time = 0
-# format = '\[⏱️[$duration]($style)\]'
-# style = "000"
