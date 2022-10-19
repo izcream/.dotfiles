@@ -10,7 +10,7 @@ if [ ! -x "$(command -v zsh)" ]; then
   echo "zsh is not installed"
   apt update && apt install -y zsh
 fi
-
+#check curl
 if [ ! -x "$(command -v curl)" ]; then
   apt install -y curl
 fi
@@ -21,12 +21,21 @@ if [ ! -x "$(command -v starship)" ]; then
   curl -sS https://starship.rs/install.sh | sh
 fi
 
+#check bat
+if [ ! -x "$(command -v bat)" ]; then
+  echo "bat is not installed"
+  apt install bat -y
+  ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
+
+
 #check folder config exists
 if [[ ! -d $CONFIG_PATH ]]; then
   echo "creating $CONFIG_PATH"
   mkdir -p $CONFIG_PATH
 fi
 
+#remove old zshrc
 if [[ -f $HOME/.zshrc ]]; then
   if [[ -L $HOME/.zshrc ]]; then
     rm $HOME/.zshrc

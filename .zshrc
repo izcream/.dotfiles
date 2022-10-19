@@ -123,7 +123,6 @@ export PATH=$HOME/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
-#_evalcache dircolors $HOME/.dircolors
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -136,14 +135,3 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PATH=$PATH:$HOME/.local/bin
 #fzf theme
 export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
-[ -s "/home/izcream/.bun/_bun" ] && source "/home/izcream/.bun/_bun"
-
