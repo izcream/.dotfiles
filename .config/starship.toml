@@ -7,7 +7,6 @@ command_timeout = 1000
 [character]
 success_symbol = "[🍦 \ufc32](002)"
 error_symbol = "[👻 \ufc32](001)"
-vicmd_symbol = "[🚀 \ufc32](004)"
 
 [directory]
 truncation_length = 2
@@ -26,4 +25,4 @@ format = '([\[$all_status$ahead_behind\]]($style)) '
 [package]
 format = "[$symbol$version]($style) "
 symbol = "📦 "
-style = "000"
+style = "008"
