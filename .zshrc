@@ -1,4 +1,21 @@
+###############
+# PATH CONFIG #
+##############
 export ZSH="$HOME/.oh-my-zsh"
+#golang
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+#.local/bin
+export PATH=$PATH:$HOME/.local/bin
+# pnpm
+export PNPM_HOME="/home/izcream/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+export DENO_INSTALL="/home/izcream/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+#fzf theme
+export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
 
 export FORGIT_LOG_GRAPH_ENABLE=false
 export BAT_THEME=catppuccin
@@ -123,24 +140,3 @@ export PATH=$HOME/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
-
-#golang
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-
-#.local/bin
-export PATH=$PATH:$HOME/.local/bin
-#fzf theme
-export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
-
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-export ANDROID_HOME=$HOME/android
-export ANDROID_SDK_ROOT=${ANDROID_HOME}
-export PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${PATH}
-
-  export DENO_INSTALL="/home/izcream/.deno"
-  export PATH="$DENO_INSTALL/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/izcream/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
