@@ -70,10 +70,8 @@ alias dcdn="docker-compose down"
 
 #general
 alias wwa="cd ~/projects/wewillapp"
-alias gta="cd ~/future-rp"
 alias c="code"
 alias dex="docker exec -it $1"
-alias rz="source $HOME/.zshrc"
 alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
 alias exp="explorer.exe"
@@ -84,7 +82,6 @@ alias cat="bat --paging=never --plain"
 alias machine="macchina"
 alias ps="procs"
 alias vi="nvim"
-alias pm="podman"
 
 #go to home
 function h() {
@@ -133,6 +130,15 @@ function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
 
+#apt update & upgrade
+function apt() {
+	if [[ $1 == "updatez" ]]; then
+		sudo apt update -y && sudo apt upgrade -y
+	else
+		sudo apt $1
+	fi
+}
+
 #starship
 _evalcache starship init zsh
 # fnm
@@ -140,3 +146,7 @@ export PATH=$HOME/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
+
+# fnm
+export PATH="/home/izcream/.fnm:$PATH"
+eval "`fnm env`"
