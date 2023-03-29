@@ -4,6 +4,12 @@ add_newline = true
 scan_timeout = 100
 command_timeout = 1000
 
+format = """
+$directory$all
+$git_branch$git_status$character
+"""
+
+
 [character]
 success_symbol = "[🍦 \ufc32](002)"
 error_symbol = "[👻 \ufc32](001)"
@@ -11,18 +17,23 @@ error_symbol = "[👻 \ufc32](001)"
 [directory]
 truncation_length = 2
 truncation_symbol = "…/"
+truncate_to_repo = true
 home_symbol = "🏠~"
 format = "[$path]($style)[$read_only]($read_only_style) "
 style = "004"
 
 [git_branch]
-format = "on [$symbol$branch(:$remote_branch)]($style)"
-# symbol = " "
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style)) '
+symbol = "\ue708"
+format = "[$symbol $branch(:$remote_branch)]($style) "
 
 [package]
-format = "[$symbol$version]($style) "
-symbol = "📦 "
-style = "008"
+symbol = "📦"
+format = "[$symbol $version]($style) "
+
+[nodejs]
+symbol = "\ue718"
+format = "[$symbol $version]($style) "
+
+[php]
+symbol = "\ue73d"
+format = "[$symbol $version]($style) "

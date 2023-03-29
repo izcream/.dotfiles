@@ -3,7 +3,7 @@
 ##############
 export ZSH="$HOME/.oh-my-zsh"
 #golang
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.dotfiles/bin
 #.local/bin
 export PATH=$PATH:$HOME/.local/bin
 # pnpm
@@ -13,6 +13,10 @@ export PATH="$PNPM_HOME:$PATH"
 
 export DENO_INSTALL="/home/izcream/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+#fly.io
+export FLYCTL_INSTALL="/home/izcream/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 #fzf theme
 export FZF_DEFAULT_OPTS='--color=hl:#89dceb --color=fg+:#cdd6f4,bg+:-1,hl+:#a6e3a1 --color=info:#fab387,prompt:#a6e3a1,pointer:#f6c2e7 --color=marker:#f5c2e7,spinner:#fab387,header:#6c7086'
@@ -36,7 +40,6 @@ plugins=(
 	last-working-dir
 	you-should-use
 	evalcache
-	forgit
 )
 source $ZSH/oh-my-zsh.sh
 #alias
@@ -47,7 +50,7 @@ alias pi="pnpm install"
 alias pa="pnpm add"
 alias pad="pnpm add -D"
 alias pc="rm -rf node_modules pnpm-lock.yaml"
-alias px="pnpm dlx"
+alias {px,pnpx,pdlx}="pnpm dlx"
 #yarn
 alias yi="yarn install"
 alias ya="yarn add"
