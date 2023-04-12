@@ -45,3 +45,6 @@ alias vi="nvim"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias {python,py}=python3
+
+#s search from terminal
+alias {gg,google}="s -p google"
