@@ -14,7 +14,7 @@ $rust\
 $python\
 $php\
 $golang\
-$cmd_duration$jobs$time\
+$time$cmd_duration$jobs\
 $line_break\
 $character
 """
@@ -83,16 +83,16 @@ format = "[$symbol$version]($style) "
 style = "red"
 
 [cmd_duration]
-format = "🚀 [$duration]($style) "
+format = "🚀[$duration]($style) "
 style = "005"
 
 [jobs]
-symbol = ""
+symbol = "⚙️"
 style = "bold red"
 number_threshold = 1
 format = "[$symbol]($style) "
 
 [time]
 disabled = false
-format = '🕒 [$time]($style)'
+format = '🕒[$time]($style) '
 style = "060"

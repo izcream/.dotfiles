@@ -4,36 +4,33 @@ function h() {
 	cd ~/$1
 }
 
-#create directory and cd to it
 function dir() {
-	mkdir -p $1 && cd $1
-	echo "\n\nOpen with VSCode?"
-	select yn in "Yes" "No"; do
-		case $yn in
-			Yes) code .; break;;
-			No) break;;
-		esac
-	done
+	DIRNAME=$1
+	if [[ -z "$DIRNAME" ]]; then
+		DIRNAME=$(gum input --placeholder="Folder name" --header "Create new Folder" --header.margin="1")
+	fi
+	mkdir -p $DIRNAME && cd $DIRNAME
+	OPENED=$(gum choose "Yes" "No" --header "Open with VSCode?" --header.margin="1")
+	if [[ $OPENED = "Yes" ]]; then
+		code .
+	fi
 }
 
 function godir() {
-	local pkgName="golang-app"
-	if [[ -z $1 ]]; then
-		echo "please input directory name"
-		return
+	DIRNAME=$1
+	PKGNAME=$1
+	if [[ -z "$DIRNAME" ]]; then
+		DIRNAME=$(gum input --placeholder="Folder name" --header "Create new Folder" --header.margin="1")
 	fi
 	if [[ ! -z $2 ]]; then
-		pkgName=$2
+		PKGNAME=$2
 	fi
-	mkdir -p $1 && cd $1 && go mod init $pkgName
-	echo "🚀 Create go module $pkgName in $(pwd)"
-	echo "\n\nOpen with VSCode?"
-	select yn in "Yes" "No"; do
-		case $yn in
-			Yes) code .; break;;
-			No) break;;
-		esac
-	done
+	mkdir -p $DIRNAME && cd $DIRNAME && go mod init $PKGNAME
+	echo "🚀 Create go module $PKGNAME in $(pwd)"
+	OPENED=$(gum choose "Yes" "No" --header "Open with VSCode?" --header.margin="1")
+	if [[ $OPENED = "Yes" ]]; then
+		code .
+	fi
 }
 
 #create .prettierrc file as current path

@@ -28,6 +28,3 @@ eval "$(fnm env --use-on-cd)"
 #zoxide
 _evalcache zoxide init zsh
 
-# tabtab source for packages(PNPM Completion)
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
