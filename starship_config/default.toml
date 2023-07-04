@@ -1,68 +1,70 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$username\
+$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
+$fill\
 $nodejs\
 $rust\
+$python\
+$php\
 $golang\
-$fill\
+$time$cmd_duration$jobs\
 $line_break\
 $character
 """
 
 add_newline = true
-scan_timeout = 10
-command_timeout = 100
-[fill]
-symbol = " "
+scan_timeout = 100
+command_timeout = 1000
+
 [character]
 success_symbol = "[🍦 \ufc32](002)"
 error_symbol = "[👻 \ufc32](001)"
 vimcmd_symbol = "[🦄 \ufc32](002)"
 
 [directory]
-truncation_length = 1
-truncation_symbol = "~/"
+truncation_length = 2
+truncation_symbol = "…/"
 truncate_to_repo = true
 home_symbol = "🏡~"
 format = "[$path]($style)[$read_only]($read_only_style) "
-style = "004"
+style = "012"
+
+[fill]
+symbol = " "
 
 [git_branch]
-format = "[$branch]($style)"
-style = "#6c7086"
+symbol = "\ue725"
+format = "[$symbol $branch(:$remote_branch)]($style)"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = " "
-untracked = " "
-modified = " "
-staged = " "
-renamed = " "
-deleted = " "
-stashed = "≡"
+deleted = "×"
+renamed = "\uf954"
+format = '([\[$all_status$ahead_behind\]]($style))'
+style = "014"
+
+[git_metrics]
+disabled = false
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "008"
 
 [package]
 symbol = "📦"
-style = "008"
+style = "000"
 version_format = "${raw}"
-format = "[$symbol $version]($style)"
+format = "[$symbol $version]($style) "
 display_private = true
 
-
 [nodejs]
-# symbol = "\uf898"
-symbol="󰎙 "
-format = "[$symbol$version]($style) "
+symbol = "\uf898"
+format = "[$symbol $version]($style) "
 style = "green"
 
 [php]
@@ -70,15 +72,15 @@ symbol = "🐘"
 disabled = true
 format = "[$symbol$version]($style) "
 
+
 [golang]
-symbol = "🐹 "
-style="159"
-format = "[$symbol$version]($style)"
+symbol = "🐹"
+style = "004"
+format = "[$symbol $version]($style) "
 
 [rust]
 format = "[$symbol$version]($style) "
 style = "red"
-symbol = "🦀 "
 
 [cmd_duration]
 format = "🚀[$duration]($style) "
@@ -92,5 +94,5 @@ format = "[$symbol]($style) "
 
 [time]
 disabled = false
-format = '[ $time]($style)'
-style = "#585b70"
+format = '🕒[$time]($style) '
+style = "060"

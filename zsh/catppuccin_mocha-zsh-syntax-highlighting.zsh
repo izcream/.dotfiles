@@ -1,4 +1,4 @@
-# Catppuccin Theme (for zsh-syntax-highlighting)
+# Catppuccin Mocha Theme (for zsh-syntax-highlighting)
 #
 # Paste this files contents inside your ~/.zshrc before you activate zsh-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
@@ -25,7 +25,6 @@ ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#fab387,italic'
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#fab387'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#fab387'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#cba6f7'
-
 ## Keywords
 ## Built ins
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a6e3a1'
@@ -58,10 +57,10 @@ ZSH_HIGHLIGHT_STYLES[named-fd]='fg=#cdd6f4'
 ZSH_HIGHLIGHT_STYLES[numeric-fd]='fg=#cdd6f4'
 ## No category relevant in spec
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#e64553'
-ZSH_HIGHLIGHT_STYLES[path]='fg=#cdd6f4'
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#f38ba8'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#cdd6f4'
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#f38ba8'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#cdd6f4,underline'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#f38ba8,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#cdd6f4,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#f38ba8,underline'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=#cdd6f4'
 ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#cba6f7'
 #ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=?'

@@ -4,13 +4,19 @@ function h() {
 	cd ~/$1
 }
 
+function mdir() {
+	mkdir -p $1 && cd $1
+}
+
 function dir() {
 	DIRNAME=$1
 	if [[ -z "$DIRNAME" ]]; then
 		DIRNAME=$(gum input --placeholder="Folder name" --header "Create new Folder" --header.margin="1")
 	fi
+	test -z $DIRNAME && return
 	mkdir -p $DIRNAME && cd $DIRNAME
 	OPENED=$(gum choose "Yes" "No" --header "Open with VSCode?" --header.margin="1")
+	test -z $OPENED && return
 	if [[ $OPENED = "Yes" ]]; then
 		code .
 	fi
@@ -29,7 +35,7 @@ function godir() {
 	echo "🚀 Create go module $PKGNAME in $(pwd)"
 	OPENED=$(gum choose "Yes" "No" --header "Open with VSCode?" --header.margin="1")
 	if [[ $OPENED = "Yes" ]]; then
-		code .
+		code --profile "Golang" .
 	fi
 }
 

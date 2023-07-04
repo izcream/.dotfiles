@@ -31,7 +31,8 @@ alias dcdn="docker-compose down"
 alias dex="docker exec -it $1"
 
 #general
-alias c="code"
+# alias c="code"
+alias {c,code}="code"
 alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
 alias exp="explorer.exe"

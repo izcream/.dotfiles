@@ -8,4 +8,4 @@ source $ZSH/oh-my-zsh.sh
 
 source $DOTFILES/zsh/alias.zsh
 source $DOTFILES/zsh/function.zsh
-source $DOTFILES/zsh/zsh-syntax-highlighting.zsh
+source $DOTFILES/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
