@@ -6,17 +6,17 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
+$fill\
 $nodejs\
 $rust\
 $golang\
-$fill\
 $line_break\
 $character
 """
 
 add_newline = true
-scan_timeout = 10
-command_timeout = 100
+scan_timeout = 500
+command_timeout = 500
 [fill]
 symbol = " "
 [character]
@@ -25,9 +25,9 @@ error_symbol = "[👻 \ufc32](001)"
 vimcmd_symbol = "[🦄 \ufc32](002)"
 
 [directory]
-truncation_length = 1
+truncation_length = 2
 truncation_symbol = "~/"
-truncate_to_repo = true
+truncate_to_repo = false
 home_symbol = "🏡~"
 format = "[$path]($style)[$read_only]($read_only_style) "
 style = "004"
@@ -53,22 +53,22 @@ style = "008"
 
 [package]
 symbol = "📦"
-style = "008"
+style = "#585b70"
 version_format = "${raw}"
-format = "[$symbol $version]($style)"
+format = "[$symbol$version]($style) "
 display_private = true
 
 
 [nodejs]
-# symbol = "\uf898"
-symbol="󰎙 "
-format = "[$symbol$version]($style) "
+# symbol="󰎙 "
+symbol = "\ue781 "
+format = "[$symbol$version]($style)"
 style = "green"
 
 [php]
 symbol = "🐘"
 disabled = true
-format = "[$symbol$version]($style) "
+format = "[$symbol$version]($style)"
 
 [golang]
 symbol = "🐹 "
@@ -76,21 +76,21 @@ style="159"
 format = "[$symbol$version]($style)"
 
 [rust]
-format = "[$symbol$version]($style) "
+format = "[$symbol$version]($style)"
 style = "red"
 symbol = "🦀 "
 
-[cmd_duration]
-format = "🚀[$duration]($style) "
-style = "005"
+# [cmd_duration]
+# format = "🚀[$duration]($style) "
+# style = "005"
 
-[jobs]
-symbol = "⚙️"
-style = "bold red"
-number_threshold = 1
-format = "[$symbol]($style) "
+# [jobs]
+# symbol = "⚙️"
+# style = "bold red"
+# number_threshold = 1
+# format = "[$symbol]($style) "
 
-[time]
-disabled = false
-format = '[ $time]($style)'
-style = "#585b70"
+# [time]
+# disabled = true
+# format = '[ $time]($style)'
+# style = "#585b70"
