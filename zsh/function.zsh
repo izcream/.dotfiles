@@ -39,33 +39,44 @@ function godir() {
 	fi
 }
 
-#create .prettierrc file as current path
-function cpt() {
-	cp $HOME/.dotfiles/.prettierrc $(pwd)/.prettierrc
-	echo ".prettierrc created 🚀"
-}
 
 #run dev command by current node package manager tool
 function dev() {
 	if [[ -f $(pwd)"/yarn.lock" ]]; then
-		yarn dev
+		yarn dev $@
 	elif [[ -f $(pwd)"/pnpm-lock.yaml" ]]; then
-		pnpm dev
+		pnpm dev $@
+	elif [[ -f $(pwd)"/bun.lockb" ]]; then
+		bun run dev $@
 	else
-		npm run dev
+		npm run dev $@
 	fi
 }
 
 #run build command by current node package manager tool
 function build() {
 	if [[ -f $(pwd)"/yarn.lock" ]]; then
-		yarn build
+		yarn build $@
 	elif [[ -f $(pwd)"/pnpm-lock.yaml" ]]; then
-		pnpm build
+		pnpm build $@
+	elif [[ -f $(pwd)"/bun.lockb" ]]; then
+		bun run build $@
 	else
-		npm run build
+		npm run build $@
 	fi
 }
+
+#run dev command by current node package manager tool
+function start() {
+	if [[ -f $(pwd)"/yarn.lock" ]]; then
+		yarn start $@
+	elif [[ -f $(pwd)"/pnpm-lock.yaml" ]]; then
+		pnpm start $@
+	else
+		npm start $@
+	fi
+}
+
 #colormap function Thanks: https://github.com/xcad2k/dotfiles
 function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done

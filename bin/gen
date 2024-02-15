@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+const crypto = require('crypto')
+const type = process.argv[2]
+let amount = Number(process.argv[3]) || 1
+let charLength = Number(process.argv[4]) || 32
+if (!type) {
+  console.log('💡 Usage: gen [uuid,secret,(str)ing] [amount(default=1)] [length(default=32)]')
+}
+switch (type) {
+  case 'uuid':
+    for (let i = 0; i < amount; i++) console.log(crypto.randomUUID())
+    break
+    break
+  case 'secret':
+    for (let i = 0; i < amount; i++) console.log(crypto.randomBytes(charLength).toString('hex'))
+    break
+  case 'str':
+  case 'string':
+    for (let i = 0; i < amount; i++) console.log(generateRandomString(charLength))
+    break
+}
+process.exit(0)
+function generateRandomString(length) {
+  let result = ''
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  const charactersLength = characters.length
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}

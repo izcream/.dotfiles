@@ -6,6 +6,13 @@ alias pa="pnpm add"
 alias pad="pnpm add -D"
 alias pc="rm -rf node_modules pnpm-lock.yaml"
 alias {px,pnpx,pdlx}="pnpm dlx"
+#bun
+alias b="bun"
+alias bi="bun install"
+alias ba="bun add"
+alias bad="bun add -D"
+alias bc="rm -rf node_modules bun.lockb"
+alias {bx,bnpx,bdlx}="bunx"
 #yarn
 alias yi="yarn install"
 alias ya="yarn add"
@@ -31,7 +38,6 @@ alias dcdn="docker-compose down"
 alias dex="docker exec -it $1"
 
 #general
-# alias c="code"
 alias {c,code}="code"
 alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
@@ -46,6 +52,3 @@ alias vi="nvim"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias {python,py}=python3
-
-#s search from terminal
-alias {gg,google}="s -p google"

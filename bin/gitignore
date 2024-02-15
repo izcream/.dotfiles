@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+const fs = require('fs')
+
+const REPOSITORY = 'github/gitignore'
+const API_URL = 'https://api.github.com/repos'
+async function main() {
+  const lang = process.argv[2]
+
+  const res = await fetch(`${API_URL}/${REPOSITORY}/contents`)
+  /**
+   * @type {{name:string,type:'file'|'dir',download_url:string|null}[]} files
+   */
+  const files = await res.json()
+  /**
+   * @type {{name:string,download_url:string|null}[]} languages
+   */
+  const languages = files
+    .filter((f) => f.type === 'file')
+    .filter((f) => f.name.endsWith('.gitignore'))
+    .map((f) => ({ name: f.name.replace('.gitignore', ''), download_url: f.download_url }))
+  if (!lang) {
+    console.log('💡 Usage: gitignore [language]')
+    console.log('💡 Available languages:')
+    console.table(languages, ['name'])
+  } else {
+    let found = languages.find((l) => l.name.toLowerCase() == lang.toLowerCase())
+    if (!found) {
+      console.log(`💥 Language "${lang}" not found.`)
+      //try to find related languages name
+      const pattern = new RegExp('.*' + lang + '.*', 'gi')
+      let related = languages.filter((l) => l.name.toLowerCase().match(pattern))
+      if (related.length > 0) {
+        console.log(`💡 or do you mean:`, related.map((r) => r.name).join(','))
+      }
+    } else {
+      //check if file exists
+      if (fs.existsSync('.gitignore')) {
+        console.log('💥 .gitignore already exists, please remove it first.')
+        return
+      }
+      console.log(`starting download .gitignore for ${lang}...`)
+      console.time('🕒 download finished in')
+      const res = await fetch(found.download_url)
+      const file = await res.arrayBuffer()
+      const buffer = Buffer.from(file)
+      fs.createWriteStream('.gitignore').write(buffer)
+      console.timeEnd('🕒 download finished in')
+      console.log(`✅ .gitignore for ${lang} downloaded. 👋`)
+    }
+  }
+}
+main().catch(console.error)

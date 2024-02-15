@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+const fs = require('fs')
+
+async function main() {
+  const config = {
+    semi: false,
+    singleQuote: true,
+    printWidth: 100,
+    tabWidth: 2,
+    useTabs: true,
+    trailingComma: 'none',
+    bracketSpacing: true,
+    bracketSameLine: true
+  }
+  const options = []
+  const args = process.argv.slice(2)
+  if (args.some((a) => a.includes('vue'))) {
+    config.vueIndentScriptAndStyle = true
+    options.push('VueJS')
+  }
+  if (args.some((a) => a.includes('tailwind'))) {
+    config.plugins = ['prettier-plugin-tailwindcss']
+    options.push('tailwindcss')
+  }
+  if (args.some((a) => a.includes('svelte'))) {
+    config.plugins = ['prettier-plugin-svelte']
+    config.overrides = [{ files: '*.svelte', options: { parser: 'svelte' } }]
+    options.push('Svelte')
+  }
+  if (fs.existsSync('.prettierrc')) {
+    console.log('😅 Prettier config already exists. Skipping...')
+    return
+  }
+  fs.writeFileSync('.prettierrc', JSON.stringify(config, null, 2))
+  if (options.length) {
+    console.log(
+      `🎉 Prettier config created successfully for ${options.join(', ')}!`
+    )
+    return
+  }
+  console.log('🎉 Prettier config created successfully!')
+}
+main().catch(console.error)
