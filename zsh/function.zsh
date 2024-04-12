@@ -35,7 +35,7 @@ function godir() {
 	echo "🚀 Create go module $PKGNAME in $(pwd)"
 	OPENED=$(gum choose "Yes" "No" --header "Open with VSCode?" --header.margin="1")
 	if [[ $OPENED = "Yes" ]]; then
-		code --profile "Golang" .
+		code --profile go .
 	fi
 }
 
@@ -80,13 +80,4 @@ function start() {
 #colormap function Thanks: https://github.com/xcad2k/dotfiles
 function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
-
-#apt update & upgrade
-function apt() {
-	if [[ $1 == "updatez" ]]; then
-		sudo apt update -y && sudo apt upgrade -y
-	else
-		sudo apt $1
-	fi
 }

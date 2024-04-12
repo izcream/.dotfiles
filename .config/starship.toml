@@ -29,9 +29,10 @@ vimcmd_symbol = "[🦄 󰜴](002)"
 truncation_length = 2
 truncation_symbol = "~/"
 truncate_to_repo = false
-home_symbol = "🏡~"
+home_symbol = "~"
 format = "[$path]($style)[$read_only]($read_only_style) "
 style = "004"
+fish_style_pwd_dir_length=2
 
 [git_branch]
 format = "[$branch]($style)"

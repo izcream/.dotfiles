@@ -10,13 +10,10 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	last-working-dir
-	you-should-use
 	evalcache
 	golang
 	gh
 	docker-compose
-	rust
-	dirhistory
 )
 source $HOME/.dotfiles/zsh/rc.zsh
 #starship
@@ -44,10 +41,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Turso
 export PATH="/home/izcream/.turso:$PATH"
-
-#Android
-# export ANDROID_HOME="/mnt/d/Android/Sdk"
-# export ANDROID_SDK_ROOT=$ANDROID_HOME
-# export PATH=$PATH:$ANDROID_HOME/emulator
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
-# export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH"
+WARP_ENABLE_WAYLAND=1
+eval "$(gh copilot alias -- zsh)"

@@ -7,22 +7,21 @@ async function main() {
     singleQuote: true,
     printWidth: 100,
     tabWidth: 2,
-    useTabs: true,
+    useTabs: false,
     trailingComma: 'none',
     bracketSpacing: true,
-    bracketSameLine: true
+    bracketSameLine: true,
+    htmlWhitespaceSensitivity: 'ignore'
   }
   const options = []
   const args = process.argv.slice(2)
   if (args.some((a) => a.includes('vue'))) {
     config.vueIndentScriptAndStyle = true
     options.push('VueJS')
-  }
-  if (args.some((a) => a.includes('tailwind'))) {
+  } else if (args.some((a) => a.includes('tailwind'))) {
     config.plugins = ['prettier-plugin-tailwindcss']
     options.push('tailwindcss')
-  }
-  if (args.some((a) => a.includes('svelte'))) {
+  } else if (args.some((a) => a.includes('svelte'))) {
     config.plugins = ['prettier-plugin-svelte']
     config.overrides = [{ files: '*.svelte', options: { parser: 'svelte' } }]
     options.push('Svelte')
