@@ -8,6 +8,7 @@ alias pc="rm -rf node_modules pnpm-lock.yaml"
 alias {px,pnpx,pdlx}="pnpm dlx"
 #bun
 alias b="bun"
+alias bb="bun --bun"
 alias bi="bun install"
 alias ba="bun add"
 alias bad="bun add -D"

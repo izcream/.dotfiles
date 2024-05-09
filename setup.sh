@@ -62,17 +62,7 @@ if [[ -d $CONFIG_PATH/bat ]]; then
   fi
 fi
 
-#lsd
-if [[ -d $CONFIG_PATH/lsd ]]; then
-  if [[ -L $CONFIG_PATH/lsd ]]; then
-    rm -rf $CONFIG_PATH/lsd
-  else
-    mv $CONFIG_PATH/lsd $CONFIG_PATH/lsd_bak
-  fi
-fi
-
 ln -s $DOTFILE_PATH/.zshrc $HOME/.zshrc
 ln -s $DOTFILE_PATH/.config/starship.toml $HOME/.config/starship.toml
 ln -s $DOTFILE_PATH/.config/bat $HOME/.config/bat
-ln -s $DOTFILE_PATH/.config/lsd $HOME/.config/lsd
 echo "setup finished"
