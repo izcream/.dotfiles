@@ -40,3 +40,4 @@ source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # fnm
 export PATH="/home/izcream/.local/share/fnm:$PATH"
 eval "`fnm env`"
+export PATH="$PATH:/opt/mssql-tools18/bin"

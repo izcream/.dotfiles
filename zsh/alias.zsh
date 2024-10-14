@@ -38,13 +38,20 @@ alias dcupd="docker compose up -d"
 alias dcdn="docker-compose down"
 alias dex="docker exec -it $1"
 
+#php&friends
+alias com="composer"
+alias {pha,par}="php artisan"
+alias sail="./vendor/bin/sail"
+alias sa="sail artisan"
 #general
 alias {c,code}="code"
+alias ci="code-insiders"
 alias {clr,cz,cx}="clear"
 alias sls="jq .scripts package.json"
 alias exp="explorer.exe"
 alias ls="exa --icons --git --group-directories-first"
 alias la="ls -lah"
+alias subl='"/mnt/d/Program Files/Sublime Text/sublime_text.exe"'
 #plugins
 alias cat="bat --paging=never --plain"
 alias machine="macchina"
